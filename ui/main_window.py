@@ -758,5 +758,7 @@ class AscendaraInstaller(ctk.CTk):
         self.status_text.configure(text="Installation failed - See logs for details")
         self.current_task.configure(text="An error occurred during installation")
         self.progress_bar.configure(progress_color=self.colors["error"])
-        self.install_button.configure(state="normal")
-        self.exit_button.configure(state="normal")
+        
+        # Hide progress and show buttons so user can retry
+        self.progress_frame.pack_forget()
+        self.buttons_frame.pack(pady=(20, 20))
